@@ -19,10 +19,23 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const { Country, Activity } = require('./src/db.js');
+
+async function savePeronia() {
+  const peronia = await Country.create({
+    id: 'prn',
+    name: 'peronia',
+    flag: 'evita',
+    capital: 'la matanza',
+    region: 'argentina'
+  });
+}
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: true })
+.then(() => {
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
-});
+})
+.then(savePeronia);
