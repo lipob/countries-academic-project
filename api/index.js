@@ -18,24 +18,41 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
+const { add } = require('./src/controllers/countries.js');
 const { conn } = require('./src/db.js');
 const { Country, Activity } = require('./src/db.js');
+const axios = require('axios');
 
-async function savePeronia() {
-  const peronia = await Country.create({
-    id: 'prn',
-    name: 'peronia',
-    flag: 'evita',
-    capital: 'la matanza',
-    region: 'argentina'
-  });
+function fillDatabaseWithCountries() {
+    return axios.get('https://restcountries.eu/rest/v2/all')
+      .then(results => {
+        const countriesData = results.data;
+        countriesData.map(country => Country.create({
+          id: country.alpha3Code,
+          name: country.name,
+          flag: country.flag,
+          capital: country.capital,
+          region: country.region,
+          subregion: country.subregion,
+          area: country.area,
+          population: country.population
+        }))
+      })
 }
 
 // Syncing all the models at once.
-conn.sync({ force: true })
+conn.sync()
+.then(() => {
+    Country.count()
+        .then(c => {
+            console.log(c);
+            if(c === 0) {
+                fillDatabaseWithCountries()
+            };
+        });
+})
 .then(() => {
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
-})
-.then(savePeronia);
+});
