@@ -7,9 +7,8 @@ function CountryDetail({countryDetail, getCountryDetail, match}) {
     useEffect(() => {
         getCountryDetail(countryId);
     }, [])
-    console.log(countryDetail)
     return (
-        <div>
+        <div key={countryDetail.id}>
             <div>
                 <img src={countryDetail.flag} alt={countryDetail.name} />
                 <p>{countryDetail.id}</p>
@@ -20,14 +19,14 @@ function CountryDetail({countryDetail, getCountryDetail, match}) {
                 <p>Area: {countryDetail.area} Km2</p>
             </div>
             <div>
-                {countryDetail.activities && countryDetail.activities.map(activity => {
-                    return <li>{activity.name}</li>
-                })}
+                <ul>
+                    {countryDetail.activities && countryDetail.activities.map(activity => {
+                        return <li>{activity.name}</li>
+                    })}
+                </ul>
             </div>
         </div>
-    )
-    
-
+    )  
 }
 
 const mapStateToProps = state => {

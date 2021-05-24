@@ -19,7 +19,7 @@ class CountryModel extends ModelCrud {
             return this.model.findAll({
                 where: {
                     name: {
-                        [Op.like]: `%${name}%`
+                        [Op.iLike]: `%${name}%`
                     }
                 },
                 include: Activity
