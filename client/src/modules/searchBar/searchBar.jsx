@@ -25,7 +25,7 @@ function SearchBar() {
     
     useEffect(clearInput)
     
-    var results = 'Mensaje de resultados'
+    var results = ''
     if (keyword) {
         if (currentCountries.length) {
             results = 'Resultados para "' + currentSearch + '"';
@@ -36,14 +36,16 @@ function SearchBar() {
 
     return (
         <div>
+            <h4 className="mb05">Search countries</h4>
             <input 
                 id="searchInput"
                 type="text"
-                placeholder="Buscar"
+                placeholder="Search countries..."
                 value={keyword}
                 onChange={onHandleChange}
+                className="mr1"
             />
-            <button onClick={onSearch}>Buscar</button>
+            <button onClick={onSearch} className="button">Search</button>
             <p>{results}</p>
         </div>
     )

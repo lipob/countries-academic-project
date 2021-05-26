@@ -1,0 +1,16 @@
+.countryDetailInfo {
+    display: flex;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 30px;
+}
+.countryDetailInfo img {
+    width: 400px;
+    height: auto;
+    margin-right: 30px;
+}
+.activitiesList li {
+    display: inline-block;
+    width: 20%;
+    margin-right: 30px;
+}

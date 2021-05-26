@@ -1,0 +1,11 @@
+.countriesTableContainer{
+    display: flex;
+}
+.countriesList {
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin: 0;
+}
+.filterSortDiv {
+    display: flex;
+}

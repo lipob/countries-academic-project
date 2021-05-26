@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useDispatch, useSelector, usrDispatch } from 'react-redux';
 import { getCountries } from '../../store/actions/countriesActions';
 import { POST_ACTIVITY_URL } from '../../constants';
+import styles from './Activity.module.css';
 
 function Activity() {
     const [countriesList, setcountriesList] = useState([]);
@@ -84,10 +85,10 @@ function Activity() {
     }, [activityDetails, selectedCountries])
 
     return (
-        <div>
-            <h2>Add new tourist activity</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
+        <div className="container">
+            <h2 className="mb3">Add new tourist activity</h2>
+            <form className={styles.activityForm} onSubmit={handleSubmit}>
+                <div className="mb1">
                     <label>Activity name</label>
                     <input 
                         type="text" 
@@ -97,7 +98,7 @@ function Activity() {
                         value={activityDetails.name}
                     />
                 </div>
-                <div>
+                <div className="mb1">
                     <label>Difficulty</label>
                     <select 
                         name="difficulty" 
@@ -109,7 +110,7 @@ function Activity() {
                         ))}
                     </select>
                 </div>
-                <div>
+                <div className="mb1">
                     <label>Duration</label>
                     <input 
                         type="text" 
@@ -119,7 +120,7 @@ function Activity() {
                         placeholder="Hours"
                     />
                 </div>
-                <div>
+                <div className="mb1">
                     <label>Season</label>
                     <select 
                         name="season" 
@@ -131,7 +132,7 @@ function Activity() {
                         ))}
                     </select>
                 </div>
-                <div>
+                <div className="mb1">
                     <label>Related countries</label>
                     <select 
                         name="relatedCountries" 
@@ -144,7 +145,7 @@ function Activity() {
                         ))}
                     </select>
                 </div>
-                <button type="submit">Add activity</button>
+                <button type="submit" className="button mt2">Add activity</button>
             </form>
         </div>
     )

@@ -56,16 +56,16 @@ function Filters() {
     }, [selectedActivity]);
 
     return (
-        <div>
-            <div>
-                <h4>Filter by region</h4>
+        <div className="mr3">
+            <div className="mb2">
+                <h4 className="mb05">Filter by region</h4>
                 <select value={selectedRegion} onChange={handleChangeSelectedRegion}>
                     {regions && regions.map((region, index) => 
                         <option value={region} key={index}>{region}</option>)}
                 </select>
             </div>
-            <div>
-                <h4>Filter by activity</h4>
+            <div className="mb2">
+                <h4 className="mb05">Filter by activity</h4>
                 <select value={selectedActivity} onChange={handleChangeSelectedActivity}>
                     {activities && activities.map((activity, index) => 
                         <option value={activity} key={index}>{activity}</option>)}

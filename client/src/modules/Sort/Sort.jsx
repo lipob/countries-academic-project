@@ -25,17 +25,17 @@ function Order() {
     }, [sortByPopulationOrder]);
 
     return (
-        <div>
-            <div>
-                <h4>Sort by country name</h4>
+        <div className="mr3">
+            <div className="mb2">
+                <h4 className="mb05">Sort by name</h4>
                 <select value={sortByNameOrder} onChange={handleSortByName}>
                     <option value="selectOrder">Select order</option>
                     <option value="AZ">A-Z</option>
                     <option value="ZA">Z-A</option>
                 </select>
             </div>
-            <div>
-                <h4>Sort by population</h4>
+            <div className="mb2">
+                <h4 className="mb05">Sort by population</h4>
                 <select value={sortByPopulationOrder} onChange={handleSortByPopulation}>
                     <option value="selectOrder">Select order</option>
                     <option value="asc">Ascending</option>

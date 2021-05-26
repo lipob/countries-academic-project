@@ -1,3 +1,6 @@
+/* Titles font */
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +13,92 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Odibee Sans', cursive;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+}
+input, select {
+  padding: 6px;
+  border-radius: 5px;
+  border: 2px solid #000000;
+}
+select {
+  min-width: 120px;
+}
+
+.bgPrimary{
+  background: #ffff01;
+}
+.button {
+  background: #ffff01;
+  color: #000000;
+  font-weight: bold;
+  padding: 7px 15px;
+  border-radius: 5px;
+  border: 2px solid #000000;
+  text-decoration: none;
+}
+.homeTitle {
+  font-size: 5em;
+}
+.container {
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.containerFluid {
+  max-width: 100%;
+}
+.mb05 {
+  margin-bottom: 5px;
+}
+.mb1 {
+  margin-bottom: 10px;
+}
+.mb2 {
+  margin-bottom: 20px;
+}
+.mb3 {
+  margin-bottom: 30px;
+}
+.mt2 {
+  margin-top: 20px;
+}
+.mr1 {
+  margin-right: 10px;
+}
+.mr2 {
+  margin-right: 20px;
+}
+.mr3 {
+  margin-right: 30px;
+}
+.p05 {
+  padding: 5px;
+}
+.p1 {
+  padding: 10px;
+}
+.px1{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.px2{
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.py1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.py2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.w50 {
+  width: 50%;
 }

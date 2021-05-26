@@ -6,6 +6,7 @@ import Filters from '../Filters/Filters';
 import Sort from '../Sort/Sort';
 import SearchBar from '../SearchBar/SearchBar';
 import Pagination from '../Pagination/Pagination';
+import styles from './CountriesTable.module.css';
 
 function CountriesTable() {
     const [listedCountries, setListedCountries] = useState([]);
@@ -102,26 +103,31 @@ function CountriesTable() {
     }
 
     return (
-        <div>
-            <h3>Countries</h3>
-            <SearchBar />
-            <Filters />
-            <Sort />
-            <ul>
-                {currentCountries.map(country => 
-                    <CountryItem 
+        <div className={`${styles.countriesTableContainer} container`}>
+            <div>
+                <SearchBar />
+                <div className={styles.filterSortDiv}>
+                    <Filters />
+                    <Sort />
+                </div>
+            </div>
+            <div>
+                <ul className={styles.countriesList}>
+                    {currentCountries.map(country => 
+                        <CountryItem 
                         id={country.id} 
                         name={country.name} 
                         flag={country.flag} 
                         region={country.region} 
                         key={country.id} />
-                )}
-            </ul>
-            <Pagination 
-                countriesPerPage={countriesPerPage} 
-                totalCountries={listedCountries.length} 
-                paginate={paginate} 
-            />
+                        )}
+                </ul>
+                <Pagination 
+                    countriesPerPage={countriesPerPage} 
+                    totalCountries={listedCountries.length} 
+                    paginate={paginate} 
+                />
+            </div>
         </div>
     )
 }

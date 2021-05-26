@@ -1,0 +1,28 @@
+.countryListing li {
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.countryListing li:hover {
+    background: #dddddd;
+}
+.countryListing li img {
+    width: 45px;
+    height: auto;
+}
+.countryListing {
+    text-decoration: none;
+    display: block;
+    min-width: 500px;
+}
+.countryDetails span {
+    display: block;
+    color: #000000;
+}
+.countryName {
+    font-weight: bold;
+}
+.countryRegion {
+    font-size: 14px;
+}

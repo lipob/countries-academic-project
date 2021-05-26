@@ -1,0 +1,11 @@
+.homepageContainer {
+    background: url(https://static01.nyt.com/images/2019/11/26/travel/26trending-apps01/26trending-apps01-videoSixteenByNineJumbo1600.jpg);
+    background-repeat: none;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

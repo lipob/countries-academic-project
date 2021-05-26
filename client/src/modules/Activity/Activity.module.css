@@ -1,0 +1,10 @@
+form.activityForm label {
+    display: inline-block;
+    width: 200px;
+}
+form.activityForm input {
+    width: 240px;
+}
+form.activityForm select {
+    width: 256px;
+}
