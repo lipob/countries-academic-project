@@ -20,9 +20,16 @@ function CountryDetail({countryDetail, getCountryDetail, match}) {
             </div>
             <div>
                 <ul>
-                    {countryDetail.activities && countryDetail.activities.map(activity => {
-                        return <li>{activity.name}</li>
-                    })}
+                    {countryDetail.activities && countryDetail.activities.map(activity => (
+                        <li key={activity.id}>
+                            <ul>
+                                <li>Activity: {activity.name}</li>
+                                <li>Difficulty: {activity.difficulty}</li>
+                                <li>Duration: {activity.duration}</li>
+                                <li>Season: {activity.season}</li>
+                            </ul>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>

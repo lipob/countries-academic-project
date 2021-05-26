@@ -1,4 +1,12 @@
-import { GET_COUNTRIES, SEARCH_COUNTRIES, GET_COUNTRY_DETAIL, FILTER_COUNTRIES_BY_REGION, FILTER_COUNTRIES_BY_ACTIVITY } from '../actions/countriesActions';
+import { 
+    GET_COUNTRIES, 
+    SEARCH_COUNTRIES, 
+    GET_COUNTRY_DETAIL, 
+    FILTER_COUNTRIES_BY_REGION, 
+    FILTER_COUNTRIES_BY_ACTIVITY,
+    SORT_COUNTRIES_BY_NAME,
+    SORT_COUNTRIES_BY_POPULATION
+    } from '../actions/countriesActions';
 
 const initialState = {
     countries: [],
@@ -6,6 +14,10 @@ const initialState = {
     countrySearch: '',
     filterRegion: '',
     filterActivity: '',
+    sortCountriesNames: '',
+    sortCountriesPopulation: '',
+    regions: [],
+    activities: []
 }
 
 const reducers = (state = initialState, action) => {
@@ -35,7 +47,17 @@ const reducers = (state = initialState, action) => {
             return {
                 ...state,
                 filterActivity: action.payload
-            }   
+            };
+        case SORT_COUNTRIES_BY_NAME:
+            return {
+                ...state,
+                sortCountriesNames: action.payload
+            };
+        case SORT_COUNTRIES_BY_POPULATION:
+            return {
+                ...state,
+                sortCountriesPopulation: action.payload
+            }
         default:
             return {
                 ...state,

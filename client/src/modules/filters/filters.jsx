@@ -68,7 +68,7 @@ function Filters() {
                 <h4>Filter by activity</h4>
                 <select value={selectedActivity} onChange={handleChangeSelectedActivity}>
                     {activities && activities.map((activity, index) => 
-                        <option vlaue={activity} key={index}>{activity}</option>)}
+                        <option value={activity} key={index}>{activity}</option>)}
                 </select>
             </div>
         </div>

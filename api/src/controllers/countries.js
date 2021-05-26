@@ -24,7 +24,12 @@ class CountryModel extends ModelCrud {
                 },
                 include: Activity
             })
-            .then(element => res.send(element))
+            .then(element => {
+                if (!element.length) {
+                    return res.sendStatus(404)
+                }
+                return res.send(element)
+            })
             .catch(error => next(error));                                }
     };
     getCountriesById = (req, res, next) => {
@@ -32,7 +37,12 @@ class CountryModel extends ModelCrud {
         return this.model.findByPk(id, {
                 include: Activity
             })
-            .then(element => res.send(element))
+            .then(element => {
+                if (!element) {
+                    return res.sendStatus(404)
+                }
+                return res.send(element)
+            })
             .catch(error => next(error));
     };
 }
