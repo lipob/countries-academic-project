@@ -25,9 +25,9 @@ class CountryModel extends ModelCrud {
                 include: Activity
             })
             .then(element => {
-                if (!element.length) {
-                    return res.sendStatus(404)
-                }
+                // if (!element.length) {
+                //     return res.sendStatus(404)
+                // }
                 return res.send(element)
             })
             .catch(error => next(error));                                }

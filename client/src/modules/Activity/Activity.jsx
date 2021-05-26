@@ -48,6 +48,7 @@ function Activity() {
             try {
                 const response = await axios.post(POST_ACTIVITY_URL, activityData);
                 console.log(response.data);
+                alert(`Congratulations! You have created a new activity called ${activityDetails.name}`)
             } catch (error) {
                 console.log(error);
             }

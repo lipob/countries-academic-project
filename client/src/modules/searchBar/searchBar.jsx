@@ -4,6 +4,7 @@ import { searchCountries } from '../../store/actions/countriesActions'
 
 function SearchBar() {
     const [keyword, setKeyword] = useState('');
+    const [results, setResults] = useState('');
 
     const dispatch = useDispatch();
     const currentSearch = useSelector(state => state.countrySearch);
@@ -22,20 +23,31 @@ function SearchBar() {
     function clearInput() {
         document.getElementById('searchInput').value = ''
     }
+
+    function clearResults(e) {
+        e.preventDefault();
+        dispatch(searchCountries(''));
+        setResults('')
+    }
     
-    useEffect(clearInput)
-    
-    var results = ''
-    if (keyword) {
-        if (currentCountries.length) {
-            results = 'Resultados para "' + currentSearch + '"';
-        } else {
-            results = 'No encontramos ningún país parecido a "' + currentSearch + '"'
+    useEffect(() => clearInput())
+    console.log(currentCountries.length)
+
+    function resultsMessage() {
+        if (currentSearch && currentCountries.length) {
+            setResults('Resultados para "' + currentSearch + '"');
+        } 
+        if (currentSearch && !currentCountries.length) {
+            setResults('No encontramos ningún país parecido a "' + currentSearch + '"')
         }
     }
 
+    useEffect(() => {
+        resultsMessage()
+    }, [currentSearch])
+
     return (
-        <div>
+        <div className="mb3">
             <h4 className="mb05">Search countries</h4>
             <input 
                 id="searchInput"
@@ -46,7 +58,7 @@ function SearchBar() {
                 className="mr1"
             />
             <button onClick={onSearch} className="button">Search</button>
-            <p>{results}</p>
+            {results ? <p>{results}<button onClick={clearResults}>X</button></p> : false}
         </div>
     )
 }
