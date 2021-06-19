@@ -59,6 +59,7 @@ function SearchBar() {
             />
             <button onClick={onSearch} className="button">Search</button>
             {results ? <p>{results}<button onClick={clearResults}>X</button></p> : false}
+            {/* <p>{results}</p> */}
         </div>
     )
 }
